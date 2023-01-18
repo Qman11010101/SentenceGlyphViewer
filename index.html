@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Sentence Glyph Viewer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+JP&family=Noto+Sans+KR&family=Noto+Sans+SC&family=Noto+Sans+TC&display=swap"
+        rel="stylesheet">
+    <script src="./js/data.min.js"></script>
+    <script src="./js/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Sentence Glyph Viewer</h1>
+    </header>
+    <main>
+        <section id="input-section">
+            <div id="inse-description">Input sentence:</div>
+            <input type="text" id="inse-sentence">
+            <button id="inse-submit" onclick="submit()">Submit</button>
+        </section>
+        <table id="glyph-table">
+        </table>
+    </main>
+    <footer>
+        <hr>
+        <span id="copyright">(c) 2023 Kjuman Enobikto</span>
+    </footer>
+</body>
+
+</html>

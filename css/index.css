@@ -1,0 +1,81 @@
+body {
+    background-color: #333;
+    color: #eee;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 50px;
+    font-family: 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans SC', 'Noto Sans TC', 'Noto Serif Tangut', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    width: fit-content;
+}
+
+h1 {
+    margin: 0 auto;
+}
+
+header {
+    margin: 10px 0;
+}
+
+/* Input section */
+#input-section {
+    display: flex;
+    font-size: 1.2em;
+}
+
+#input-section #inse-description {
+    display: inline-block;
+    flex-shrink: 0;
+    margin-right: 10px;
+    vertical-align: top;
+}
+
+#inse-sentence {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    margin-right: 10px;
+    font-family : inherit;
+    box-sizing: border-box;
+}
+
+#inse-submit {
+    display: inline-block;
+    font-size: 1em;
+}
+
+/* Display section */
+#glyph-table {
+    margin: 10px auto;
+    border: 1px solid #eee;
+    width: fit-content;
+    padding: 0;
+    display: none;
+}
+
+#glyph-table tr {
+    padding: 0;
+    margin: 0;
+}
+
+#glyph-table tr td {
+    margin: 0;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #eee;
+    white-space: nowrap;
+}
+
+#glyph-table tr td:first-child {
+    font-family: 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans SC', 'Noto Sans TC', sans-serif;
+}
+
+#glyph-table tr td:last-child {
+    text-align: left;
+}
