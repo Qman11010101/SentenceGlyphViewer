@@ -39,13 +39,36 @@ header {
     display: inline-block;
     width: 100%;
     margin-right: 10px;
-    font-family : inherit;
+    font-family: inherit;
     box-sizing: border-box;
 }
 
 #inse-submit {
     display: inline-block;
     font-size: 1em;
+}
+
+@media screen and (max-width:700px) {
+    #input-section {
+        flex-direction: column;
+        align-content: center;
+    }
+
+    #input-section #inse-description {
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    #inse-sentence {
+        margin-right: 0px;
+        margin-top: 10px;
+        height: 29px;
+    }
+
+    #inse-submit {
+        margin-right: 0px;
+        margin-top: 10px;
+    }
 }
 
 /* Display section */
@@ -78,4 +101,16 @@ header {
 
 #glyph-table tr td:last-child {
     text-align: left;
+}
+
+@media screen and (max-width:700px) {
+    #glyph-table tr td {
+        width: 0;
+        height: 0;
+        white-space: normal;
+    }
+
+    #glyph-table tr td:last-child {
+        width: 100%;
+    }
 }
