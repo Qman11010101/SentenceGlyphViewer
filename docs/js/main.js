@@ -3,7 +3,7 @@ const getData = async function (url) {
     return await res.json();
 };
 
-async function submit() {
+async function analyze() {
     const sentence = [...document.getElementById("inse-sentence").value];
     const tableSection = document.getElementById("glyph-table");
 
@@ -12,6 +12,11 @@ async function submit() {
     for (let c = 0; c < objs; c++) {
         tableSection.firstElementChild.remove();
     }
+
+    if (sentence.length === 0) {
+        tableSection.style.display = "none";
+        return;
+    };
 
     sentence.forEach(c => {
         let codeHex = c.codePointAt(0).toString(16).toUpperCase().padStart(4, "0");

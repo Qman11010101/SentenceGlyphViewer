@@ -43,7 +43,7 @@ header {
     box-sizing: border-box;
 }
 
-#inse-submit {
+#inse-analyze {
     display: inline-block;
     font-size: 1em;
 }
@@ -65,7 +65,7 @@ header {
         height: 29px;
     }
 
-    #inse-submit {
+    #inse-analyze {
         margin-right: 0px;
         margin-top: 10px;
     }
