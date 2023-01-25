@@ -16,6 +16,7 @@ jobs:
         run: |
           wget https://www.unicode.org/Public/15.0.0/ucdxml/ucd.all.flat.zip
           unzip ucd.all.flat.zip
+          ls -lah
           python3 convert.py ucd.all.flat/ucd.all.flat.xml
       - name: Commit & Push
         run: |
