@@ -23,7 +23,7 @@ jobs:
           echo -n const modifyTime=\'`date -u "+%Y-%m-%d %H:%M:%S"` UTC\'\;const data= > data.min.js
           cat unicodedict.json >> data.min.js
           mv data.min.js docs/js/data.min.js
-          rm ucd.all.flat.xml ucd.all.flat.zip data.min.js
+          rm ucd.all.flat.xml ucd.all.flat.zip
       - name: Commit & Push
         run: |
           set -x
