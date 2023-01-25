@@ -1,6 +1,5 @@
-name: Glyph Data Renewal
+name: Glyph Data Renewal Scheduled
 on:
-  push:
   schedule:
     - '0 0 1 * *'
 

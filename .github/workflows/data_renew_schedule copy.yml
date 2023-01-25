@@ -1,0 +1,35 @@
+name: Glyph Data Renewal On Push
+on:
+  push
+
+jobs:
+  renew:
+    name: renew-data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+            ref: ${{ github.head_ref }}
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Download Udata and convert file
+        run: |
+          wget https://www.unicode.org/Public/UCD/latest/ucdxml/ucd.all.flat.zip
+          unzip ucd.all.flat.zip
+          ls -lah
+          python3 convert.py ucd.all.flat.xml
+          echo -n const modifyTime=\'`date -u "+%Y-%m-%d %H:%M:%S"` UTC\'\;const data= > data.min.js
+          cat unicodedict.json >> data.min.js
+          mv data.min.js docs/js/data.min.js
+          rm ucd.all.flat.xml ucd.all.flat.zip
+      - name: Commit & Push
+        run: |
+          set -x
+          git config user.name github-actions
+          git config user.email 65916846+actions-user@users.noreply.github.com
+          git pull
+          git add .
+          git commit -m "generated"
+          git push
