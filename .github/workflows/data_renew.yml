@@ -20,7 +20,10 @@ jobs:
           unzip ucd.all.flat.zip
           ls -lah
           python3 convert.py ucd.all.flat.xml
-          rm ucd.all.flat.xml ucd.all.flat.zip
+          echo -n const modifyTime=\'`date -u "+%Y-%m-%d %H:%M:%S"` UTC\'\;const data= > data.min.js
+          cat unicodedict.json >> data.min.js
+          mv data.min.js docs/js/data.min.js
+          rm ucd.all.flat.xml ucd.all.flat.zip data.min.js
       - name: Commit & Push
         run: |
           set -x
