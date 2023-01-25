@@ -21,4 +21,4 @@ for c in repertoire:
     finaldict[codepoint] = name
 
 with open("unicodedict.json", "w", encoding="utf-8") as f:
-    json.dump(finaldict, f, indent=2)
+    json.dump(finaldict, f)

@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+            ref: ${{ github.head_ref }}
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
@@ -18,6 +20,7 @@ jobs:
           unzip ucd.all.flat.zip
           ls -lah
           python3 convert.py ucd.all.flat.xml
+          rm ucd.all.flat.xml ucd.all.flat.zip
       - name: Commit & Push
         run: |
           set -x
