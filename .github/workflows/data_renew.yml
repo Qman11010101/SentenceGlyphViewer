@@ -1,0 +1,27 @@
+name: Glyph Data Renewal
+on:
+  push
+
+jobs:
+  renew:
+    name: renew-data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Download Udata and convert file
+        run: |
+          wget https://www.unicode.org/Public/15.0.0/ucdxml/ucd.all.flat.zip
+          unzip ucd.all.flat.zip
+          python3 convert.py ucd.all.flat/ucd.all.flat.xml
+      - name: Commit & Push
+        run: |
+          set -x
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add .
+          git commit --author=. -m 'Automatically generated'
+          git push

@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
-import json
+import json, sys
 
-tree = ET.parse("ucd.all.flat.xml")
+tree = ET.parse(sys.argv[1])
 root = tree.getroot()
 repertoire = root[1]
 finaldict = {}
