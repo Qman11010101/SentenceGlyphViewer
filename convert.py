@@ -17,7 +17,6 @@ for c in repertoire:
             if a.attrib.get("type") == "control":
                 aliases.append(a.attrib.get("alias"))
         name = ", ".join(aliases)
-    print("U+" + codepoint, name)
     finaldict[codepoint] = name
 
 with open("unicodedict.json", "w", encoding="utf-8") as f:
