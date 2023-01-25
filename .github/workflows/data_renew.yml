@@ -26,6 +26,7 @@ jobs:
           set -x
           git config user.name github-actions
           git config user.email 65916846+actions-user@users.noreply.github.com
+          git pull
           git add .
           git commit -m "generated"
           git push
