@@ -1,6 +1,8 @@
 name: Glyph Data Renewal
 on:
-  push
+  push:
+  schedule:
+    - '0 0 1 * *'
 
 jobs:
   renew:
@@ -16,7 +18,7 @@ jobs:
           python-version: '3.11'
       - name: Download Udata and convert file
         run: |
-          wget https://www.unicode.org/Public/15.0.0/ucdxml/ucd.all.flat.zip
+          wget https://www.unicode.org/Public/UCD/latest/ucdxml/ucd.all.flat.zip
           unzip ucd.all.flat.zip
           ls -lah
           python3 convert.py ucd.all.flat.xml

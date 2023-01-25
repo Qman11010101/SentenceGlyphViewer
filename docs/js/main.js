@@ -32,3 +32,7 @@ async function analyze() {
 
     tableSection.style.display = "table";
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById("modify").innerText = modifyTime;
+});
