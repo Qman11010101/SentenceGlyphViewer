@@ -10,6 +10,8 @@ body {
 h1,
 h2,
 h3 {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
 }
 
@@ -27,24 +29,31 @@ header {
     font-size: 1.2em;
 }
 
-#input-section #inse-description {
-    display: inline-block;
+#inse-description {
     flex-shrink: 0;
     margin-right: 10px;
-    vertical-align: top;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #inse-sentence {
-    vertical-align: top;
-    display: inline-block;
+    display: block;
     width: 100%;
     margin-right: 10px;
     font-family: inherit;
     box-sizing: border-box;
+    resize: none;
 }
 
 #inse-analyze {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#inse-analyze button {
+    display: block;
     font-size: 1em;
 }
 
@@ -55,6 +64,8 @@ header {
     }
 
     #input-section #inse-description {
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
         width: fit-content;
         margin: 0 auto;
     }
@@ -75,6 +86,8 @@ header {
 #glyph-table {
     margin: 10px auto;
     border: 1px solid #eee;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     padding: 0;
     display: none;
