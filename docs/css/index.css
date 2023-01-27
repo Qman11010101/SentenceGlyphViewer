@@ -19,6 +19,10 @@ h1 {
     margin: 0 auto;
 }
 
+a {
+    color: #eee;
+}
+
 header {
     margin: 10px 0;
 }
