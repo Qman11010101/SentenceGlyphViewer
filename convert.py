@@ -1,5 +1,6 @@
+import json
+import sys
 import xml.etree.ElementTree as ET
-import json, sys
 
 tree = ET.parse(sys.argv[1])
 root = tree.getroot()
@@ -8,7 +9,7 @@ finaldict = {}
 for c in repertoire:
     attr = c.attrib
     codepoint = attr.get("cp")
-    if codepoint == "" or codepoint == None:
+    if codepoint == "" or codepoint is None:
         continue
     name = attr.get("na")
     if name == "":
