@@ -8,23 +8,22 @@ jobs:
     name: renew-data
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
             ref: ${{ github.head_ref }}
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.13'
       - name: Download Unicode data and convert file
         run: |
           wget https://www.unicode.org/Public/UCD/latest/ucdxml/ucd.all.flat.zip
           unzip ucd.all.flat.zip
-          ls -lah
           python3 convert.py ucd.all.flat.xml
           echo -n const modifyTime=\'`date -u "+%Y-%m-%d %H:%M:%S"` UTC\'\;const data= > data.min.js
           cat unicodedict.json >> data.min.js
           mv data.min.js docs/js/data.min.js
-          rm ucd.all.flat.xml ucd.all.flat.zip
+          rm ucd.all.flat.xml ucd.all.flat.zip unicodedict.json
       - name: Commit & Push
         run: |
           set -x

@@ -16,20 +16,20 @@ async function analyze() {
     }
 
     sentence.forEach(c => {
-        let codeHex = c.codePointAt(0).toString(16).toUpperCase().padStart(4, "0")
-        let charName = data[codeHex]
-        let glyphLine = tableSection.appendChild(document.createElement("tr"))
-        let glyph = glyphLine.appendChild(document.createElement("td"))
-        glyph.innerText = c
-        let codepoint = glyphLine.appendChild(document.createElement("td"))
-        codepoint.innerText = "U+" + codeHex
-        let name = glyphLine.appendChild(document.createElement("td"))
-        name.innerText = charName
+        const codeHex = c.codePointAt(0).toString(16).toUpperCase().padStart(4, "0")
+        const charName = data[codeHex]
+        const glyphLine = tableSection.appendChild(document.createElement("tr"))
+        const glyph = glyphLine.appendChild(document.createElement("td"))
+        glyph.textContent = c
+        const codepoint = glyphLine.appendChild(document.createElement("td"))
+        codepoint.appendChild(document.createElement("a").href = "https://codepoints.net/U+" + codeHex)
+        const name = glyphLine.appendChild(document.createElement("td"))
+        name.textContent = charName
     })
 
     tableSection.style.display = "table"
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-    document.getElementById("modify").innerText = modifyTime
+window.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("modify").textContent = modifyTime
 })
