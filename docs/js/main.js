@@ -25,6 +25,7 @@ async function analyze() {
         const codepoint = glyphLine.appendChild(document.createElement("td"))
         const anchor = document.createElement("a")
         anchor.href = "https://codepoints.net/" + codePointText
+        anchor.target = "_blank"
         anchor.textContent = codePointText
         codepoint.appendChild(anchor)
         const name = glyphLine.appendChild(document.createElement("td"))
