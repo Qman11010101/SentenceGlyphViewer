@@ -18,11 +18,15 @@ async function analyze() {
     sentence.forEach(c => {
         const codeHex = c.codePointAt(0).toString(16).toUpperCase().padStart(4, "0")
         const charName = data[codeHex]
+        const codePointText = "U+" + codeHex
         const glyphLine = tableSection.appendChild(document.createElement("tr"))
         const glyph = glyphLine.appendChild(document.createElement("td"))
         glyph.textContent = c
         const codepoint = glyphLine.appendChild(document.createElement("td"))
-        codepoint.appendChild(document.createElement("a").href = "https://codepoints.net/U+" + codeHex)
+        const anchor = document.createElement("a")
+        anchor.href = "https://codepoints.net/" + codePointText
+        anchor.textContent = codePointText
+        codepoint.appendChild(anchor)
         const name = glyphLine.appendChild(document.createElement("td"))
         name.textContent = charName
     })
